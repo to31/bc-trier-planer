@@ -46,11 +46,11 @@
                                 <th scope="row" class="align-middle">Paar&nbsp;<%= j + 1 %></th>
                                 <td>
                                     <input type="text" class="form-control" name="name-<%= j %>-0" placeholder="Frei"
-                                        value="<%= trainingDateNames[i]["name-" + j + "-0"] %>">
+                                        value="<%= trainingDateNames[i]["name-" + j + "-0"] %>" autocomplete="off">
                                 </td>
                                 <td>
                                     <input type="text" class="form-control" name="name-<%= j %>-1" placeholder="Frei"
-                                        value="<%= trainingDateNames[i]["name-" + j + "-1"] %>">
+                                        value="<%= trainingDateNames[i]["name-" + j + "-1"] %>" autocomplete="off">
                                 </td>
                             </tr>
                             <% } %>
