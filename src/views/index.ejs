@@ -1,0 +1,70 @@
+<%- include("layout/header") %>
+<nav class="navbar navbar-expand navbar-light sticky-top bg-light shadow-sm border-bottom">
+    <h3>BC Trier Planer</h3>
+</nav>
+<div class="container my-5">
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <% for(let i = data.weekIdStart; i <= data.weekIdStop; i++) { %>
+                <li class="nav-item">
+                    <a class="nav-link <%- i == weekId ? "active" : "" %>"
+                        href="/<%- i %>/0"><%= data.trainingWeeks[i] %></a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="card-body">
+            <% if (weekId !== undefined && dayId !== undefined) { %>
+            <ul class="nav nav-pills card-header-pills">
+                <% for(let i = 0; i < data.trainingDates.length; i++) { %>
+                <li class="nav-item">
+                    <a class="nav-link <%- i == dayId ? "active" : "" %>"
+                        href="/<%- weekId + "/" + i %>"><%= data.trainingDates[i].day %></a>
+                </li>
+                <% } %>
+            </ul>
+            <% } %>
+        </div>
+        <div class="mt-4 mx-1 mx-md-4">
+            <% if (weekId === undefined || dayId === undefined) { %>
+            <div class="alert alert-warning" role="alert">
+                Bitte wähle eine Woche und anschließend einen Tag aus.
+            </div>
+            <% } else { %>
+            <% for(let i = 0; i < data.trainingDates[dayId].times.length; i++) { %>
+            <h5 class="card-title">Trainingsgruppe <%= data.trainingDates[dayId].times[i] %></h5>
+            <form action="/save" method="POST" class="mb-5">
+                <input type="hidden" name="weekId" value="<%= weekId %>">
+                <input type="hidden" name="dayId" value="<%= dayId %>">
+                <input type="hidden" name="groupId" value="<%= i %>">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                            <% for( let j = 0; j < data.trainingGroupAmount; j++ ) { %>
+                            <tr>
+                                <th scope="row" class="align-middle">Paar&nbsp;<%= j + 1 %></th>
+                                <td>
+                                    <input type="text" class="form-control" name="name-<%= j %>-0" placeholder="Frei"
+                                        value="<%= trainingDateNames[i]["name-" + j + "-0"] %>">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="name-<%= j %>-1" placeholder="Frei"
+                                        value="<%= trainingDateNames[i]["name-" + j + "-1"] %>">
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <input type="submit" value="Speichern" class="btn btn-success" />
+            </form>
+            <% if (i < data.trainingDates[dayId].times.length - 1) { %>
+                <hr class="mb-5" />
+            <% } %>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+</div>
+<%- include("layout/footer") %>

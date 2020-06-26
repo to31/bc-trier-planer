@@ -1,0 +1,14 @@
+<%- include("./layout/header") %>
+<div class="container">
+    <% if (ex) { %>
+    <h4><%= ex.toString() %></h4>
+    <% } else { %>
+    <h4>There was a problem with your request.</h4>
+    <% } %>
+    <br />
+    <% if (env === "development") { %>
+    <pre class="pre-scrollable exception"><code><%= JSON.stringify(ex, null, 2) %></code></pre>
+    <pre class="pre-scrollable exception"><code><%= ex.stack %></code></pre>
+    <% } %>
+</div>
+<%- include("./layout/footer") %>

@@ -1,0 +1,24 @@
+body {
+    font-family: "Montserrat", sans-serif !important;
+}
+
+th {
+    font-size: 0.75rem;
+}
+
+.form-control {
+    padding: .275rem .25rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.emoji {
+    font-size: 1.2rem;
+}
+
+.heart {
+    color: palevioletred;
+}
