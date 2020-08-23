@@ -1,7 +1,7 @@
 {
-  "name": "vbmessage",
+  "name": "bc-trier-planer",
   "version": "1.0.0",
-  "description": "Guestbook",
+  "description": "Online attendance planner to help with planning for Corona room usage limits",
   "main": "src/app.mjs",
   "scripts": {
     "start": "env DEBUG=-express nodemon --ignore data/",
