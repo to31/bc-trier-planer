@@ -1,18 +1,22 @@
 {
-    "weekIdStart": 0,
-    "weekIdStop": 0,
-    "trainingGroupAmount": 5,
+    "weekIdStart": 4,
+    "weekIdStop": 9,
+    "trainingGroupAmount": 10,
     "trainingWeeks": {
-        "0": "29.06. - 05.07."
+        "4": "26.10. - 01.11."
+        "5": "02.11. - 08.11."
+        "6": "09.11. - 15.11."
+        "7": "16.11. - 22.11."
+        "8": "23.11. - 29.11."
     },
     "trainingDates": [
         {
             "day": "Mittwoch",
-            "times": ["19:00 - 20:00 Uhr", "20:15 - 21:15 Uhr"]
+            "times": ["17:30 - 18:45 Uhr"]
         },
         {
             "day": "Freitag",
-            "times": ["19:00 - 20:00 Uhr", "20:15 - 21:15 Uhr"]
+            "times": ["16:30 - 17:30 Uhr", "17:30 - 18:45 Uhr"]
         }
     ]
 }
